@@ -5,6 +5,18 @@ require 'nokogiri'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
+# Zrobić nowy program, który będzie pobierał dane z WIOS o *:30 każdej godziny
+# uruchamiać program co 30 minut za pomocą CRONa
+# Przeczytać co to CRON i spróbować się pobawić
+# crontab -e   służy do edycji crontaba
+# zrobić takie coś /bin/bash touch /home/konrad/crontest
+# CRON nie ważny
+
+# TO jest ważne
+# Program za pomocą marshall ma dopisywać do tablicy wartości PM2.5
+# Z kolei strona smog.rb w sinatrze ma w get / odczytać ten plik, zdeserializować go i wyświetlić wszystkie wartości z niego
+# Plik nazwać database.txt
+
 def pobierz_kolor_z_netu
 	uri = URI('http://www.wios.bialystok.pl/?go=airmiegod')
 	uploaded_page_data = Net::HTTP.get(uri) # => String
