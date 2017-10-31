@@ -11,17 +11,21 @@ page_text= Nokogiri::HTML(uploaded_page_data)
 
 
 
-value = page_text.css("//.centr//td").last
+value = (page_text.css("//.centr//td").last).to_s
 
 def style_color(x)
-	if x.to_s > "1"
-		'red'
+	x = x.to_i
+	if x > 10
+		'blue'
 	else
-		'black'
+		'green'
 	end
 end
 
 color = style_color(value)
+
+
+
 
 get '/' do
 	@value = value
@@ -29,4 +33,5 @@ get '/' do
 	erb :index
 end
 
+binding.pry
 
